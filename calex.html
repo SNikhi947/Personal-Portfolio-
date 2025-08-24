@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .calculator {
+      background: #2d2a4a;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      width: 350px;
+    }
+    .display {
+      background: #1e1b34;
+      color: #fff;
+      font-size: 2.5rem;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: right;
+      margin-bottom: 1.5rem;
+      word-wrap: break-word;
+      min-height: 60px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .btn {
+      background: #3f3c5c;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .btn:hover {
+      background: #5e5a89;
+    }
+    .btn.operator {
+      background: #ff8c42;
+      color: #fff;
+    }
+    .btn.operator:hover {
+      background: #ffae70;
+    }
+    .btn.equal {
+      background: #00b894;
+      grid-column: span 2;
+    }
+    .btn.clear {
+      background: #d63031;
+      color: white;
+    }
+    .btn.clear:hover {
+      background: #ff7675;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="btn clear" onclick="clearDisplay()">C</button>
+      <button class="btn" onclick="appendValue('(')">(</button>
+      <button class="btn" onclick="appendValue(')')">)</button>
+      <button class="btn operator" onclick="appendValue('/')">/</button>
+      <button class="btn" onclick="appendValue('7')">7</button>
+      <button class="btn" onclick="appendValue('8')">8</button>
+      <button class="btn" onclick="appendValue('9')">9</button>
+      <button class="btn operator" onclick="appendValue('*')">*</button>
+      <button class="btn" onclick="appendValue('4')">4</button>
+      <button class="btn" onclick="appendValue('5')">5</button>
+      <button class="btn" onclick="appendValue('6')">6</button>
+      <button class="btn operator" onclick="appendValue('-')">-</button>
+      <button class="btn" onclick="appendValue('1')">1</button>
+      <button class="btn" onclick="appendValue('2')">2</button>
+      <button class="btn" onclick="appendValue('3')">3</button>
+      <button class="btn operator" onclick="appendValue('+')">+</button>
+      <button class="btn" onclick="appendValue('0')">0</button>
+      <button class="btn" onclick="appendValue('.')">.</button>
+      <button class="btn equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById('display');
+    function appendValue(value) {
+      if (display.innerText === '0' && value !== '.') {
+        display.innerText = value;
+      } else {
+        display.innerText += value;
+      }
+    }
+    function clearDisplay() {
+      display.innerText = '0';
+    }
+    function calculate() {
+      try {
+        const result = eval(display.innerText);
+        display.innerText = result;
+      } catch (error) {
+        display.innerText = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>

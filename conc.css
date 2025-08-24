@@ -1,0 +1,96 @@
+:root{
+    --dark-clr:#081d2c;
+    --second-dark-clr: #112e42;
+    --text-clr: #f1f5f9;
+    --light-text-clr:#c9d9e8;
+    --global-clr: #0fbbff;
+    --btn-clr: #ff499e;
+}
+
+.contact-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--second-dark-clr);
+    border-radius: 12px;
+    box-shadow: 0 0 20px var(--global-clr);
+    animation: slideUp 1.5s ease forwards;
+    text-align: center;
+    color: var(--text-clr);
+}
+
+.contact-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-clr);
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.contact-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--btn-clr);
+    color: var(--text-clr);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 0 5px var(--btn-clr);
+    cursor: pointer;
+    transition: .5s;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.contact-btn:hover {
+    box-shadow: 0 0 5px var(--btn-clr),
+                0 0 10px var(--btn-clr),
+                0 0 15px var(--btn-clr);
+    color: var(--dark-clr);
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--text-clr);
+    transition: .5s;
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.contact-btn:hover::before {
+    width: 100%;
+}
+
+.contact-btn i {
+    font-size: 1.3rem;
+    color: var(--text-clr);
+    transition: .3s;
+}
+
+.contact-btn:hover i {
+    color: var(--dark-clr);
+}
+
+@media (min-width: 600px) {
+    .contact-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,15 @@
+a{
+    text-align: center;
+    margin-right: 50px;
+    color: chartreuse;
+    background-color: firebrick;
+    width: 500px;
+    flex: content;
+    flex-direction: column; 
+}
+div{
+    background-color: bisque;
+    height: 300px;
+    border-radius: 25px;
+    /*width: 250px;*/    
+}
