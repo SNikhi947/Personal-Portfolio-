@@ -1,0 +1,8 @@
+{
+"routes":[
+{"src":"/","dest":"/personal portfolio.html"},
+{"src":"/about","dest":"/about.html"},
+{"src":"/skills","dest":"/skills.html"}
+{"src":"/conc","dest":"/conc.html"}
+]
+}
